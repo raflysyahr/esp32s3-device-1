@@ -1,6 +1,6 @@
 idf_component_register(
     SRCS "bluetooth_service.c"
     INCLUDE_DIRS "include"
-    REQUIRES nvs_flash bt
+    REQUIRES nvs_flash bt lcd_service
 )
 

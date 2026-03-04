@@ -3,6 +3,7 @@
 #include "nvs_flash.h"
 #include "esp_mac.h"
 #include "esp_bt.h"
+#include "lcd_service.h"
 //#include "esp_bt_main.h"
 
 
@@ -176,17 +177,20 @@ static int ble_gap_event(struct ble_gap_event *event, void *arg)
             if (event->connect.status == 0)
             {
                 ESP_LOGI(TAG, "Device connected");
+		lcd_print("BL: Connected");
 		
             }
             else
             {
                 ESP_LOGI(TAG, "Connect failed, restart advertising");
+		lcd_print("BL: Restart");
                 ble_app_advertise();
             }
             break;
 
         case BLE_GAP_EVENT_DISCONNECT:
             ESP_LOGI(TAG, "Device disconnected");
+	    lcd_print("BL: Disconnect");
 
 	    vTaskDelay(pdMS_TO_TICKS(200));
 
@@ -303,4 +307,5 @@ void ble_service_init(void)
     nimble_port_freertos_init(ble_host_task);
 
     ESP_LOGI(TAG, "BLE Initialized");
+    lcd_print("BL: Initialize");
 }
