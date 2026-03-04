@@ -279,15 +279,6 @@ void ble_service_init(void)
         esp_bt_controller_enable(ESP_BT_MODE_BLE)
     );
 
-
-
-
-
-//    ESP_ERROR_CHECK(esp_bt_controller_init(&bt_cfg));
-//    ESP_ERROR_CHECK(
-//        esp_bt_controller_enable(ESP_BT_MODE_BLE)
-//    );
-
     /* Init NimBLE HCI */
     ESP_ERROR_CHECK(esp_nimble_init());
 
@@ -297,7 +288,7 @@ void ble_service_init(void)
     ble_svc_gap_init();
     ble_svc_gatt_init();
 
-    ble_svc_gap_device_name_set("ESP32S3_01");
+    ble_svc_gap_device_name_set("ESP32S3_01_Setup");
 
     ble_gatts_count_cfg(gatt_svcs);
     ble_gatts_add_svcs(gatt_svcs);
