@@ -190,7 +190,7 @@ static int ble_gap_event(struct ble_gap_event *event, void *arg)
 
         case BLE_GAP_EVENT_DISCONNECT:
             ESP_LOGI(TAG, "Device disconnected");
-	    lcd_print("BL: Disconnect");
+	    lcd_print("BL: Disconnect!");
 
 	    vTaskDelay(pdMS_TO_TICKS(200));
 
