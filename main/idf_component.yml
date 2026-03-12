@@ -20,3 +20,4 @@ dependencies:
   esp-idf-lib/i2cdev: '*'
   esp-idf-lib/pcf8574: '*'
   espressif/mqtt: '*'
+  espressif/mosquitto: '*'

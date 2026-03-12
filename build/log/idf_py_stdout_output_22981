@@ -1,0 +1,28 @@
+Command: ninja all
+[0/1] Re-running CMake...
+-- Component directory /workspaces/esp-idf/components/idf_test does not contain a CMakeLists.txt file. No component will be added
+-- Minimal build - OFF
+-- Building ESP-IDF components for target esp32s3
+NOTICE: 
+Following dependencies have new versions available:
+Dependency "esp-idf-lib/pcf8574": "1.0.8" -> "1.0.10"
+Dependency "espressif/led_strip": "3.0.2" -> "3.0.3"
+Dependency "joltwallet/littlefs": "1.20.3" -> "1.20.4"
+Consider running "idf.py update-dependencies" to update your lock file.
+NOTICE: Processing 10 dependencies:
+NOTICE: [1/10] esp-idf-lib/esp_idf_lib_helpers (1.4.0)
+NOTICE: [2/10] esp-idf-lib/hd44780 (1.3.0)
+NOTICE: [3/10] esp-idf-lib/i2cdev (2.1.1)
+NOTICE: [4/10] esp-idf-lib/pcf8574 (1.0.8)
+NOTICE: [5/10] espressif/led_strip (3.0.2)
+NOTICE: [6/10] espressif/mosquitto (2.0.20~6)
+NOTICE: [7/10] espressif/mqtt (1.0.0)
+NOTICE: [8/10] espressif/sock_utils (0.2.2)
+NOTICE: [9/10] joltwallet/littlefs (1.20.3)
+NOTICE: [10/10] idf (6.1.0)
+-- i2cdev: ESP-IDF v6.1 detected, using new i2c_master driver
+-- i2cdev: Compiling with new I2C master driver (i2cdev.c)
+-- ESP-TEE is currently supported only on the esp32c6;esp32h2;esp32c5;esp32c61 SoCs
+-- Configuring incomplete, errors occurred!
+FAILED: build.ninja 
+/usr/bin/cmake --regenerate-during-build -S/workspaces/esp32s3-device-1 -B/workspaces/esp32s3-device-1/build

@@ -93,6 +93,20 @@ dependencies:
       registry_url: https://components.espressif.com/
       type: service
     version: 3.0.2
+  espressif/mosquitto:
+    component_hash: 399b14ef6eab43447e7c93ec181146ae7e0a75a5e95ff50bf418dfd98df03341
+    dependencies:
+    - name: espressif/sock_utils
+      registry_url: https://components.espressif.com
+      require: private
+      version: ^0.2
+    - name: idf
+      require: private
+      version: '>=5.1'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 2.0.20~6
   espressif/mqtt:
     component_hash: ffdad5659706b4dc14bc63f8eb73ef765efa015bf7e9adf71c813d52a2dc9342
     dependencies:
@@ -103,6 +117,16 @@ dependencies:
       registry_url: https://components.espressif.com/
       type: service
     version: 1.0.0
+  espressif/sock_utils:
+    component_hash: b2e5cafc60dfefd05720ababb9fca0dfe2830fb9d71f97e5336de36a84c591c9
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 0.2.2
   idf:
     source:
       type: idf
@@ -122,9 +146,10 @@ direct_dependencies:
 - esp-idf-lib/i2cdev
 - esp-idf-lib/pcf8574
 - espressif/led_strip
+- espressif/mosquitto
 - espressif/mqtt
 - idf
 - joltwallet/littlefs
-manifest_hash: 14ed0c76d254904425fe48192dcc50c91996a6bc71d261969b20e425f63a7072
+manifest_hash: d027224a5cc70213ef8bcb09fd83065b1a7b82e54b83df2e551b11426488dbf2
 target: esp32s3
 version: 2.0.0

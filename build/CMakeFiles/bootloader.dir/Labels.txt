@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/workspaces/esp32s3-device-1/build/CMakeFiles/bootloader
+/workspaces/esp32s3-device-1/build/CMakeFiles/bootloader.rule
+/workspaces/esp32s3-device-1/build/CMakeFiles/bootloader-complete.rule
+/workspaces/esp32s3-device-1/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/workspaces/esp32s3-device-1/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/workspaces/esp32s3-device-1/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/workspaces/esp32s3-device-1/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/workspaces/esp32s3-device-1/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/workspaces/esp32s3-device-1/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/workspaces/esp32s3-device-1/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

@@ -13,10 +13,16 @@
 #include "lcd_service.h"
 #include "bluetooth_service.h"
 #include "esp_app_desc.h"
+#include "mqtt_broker_service.h"
 
 static const char *TAG = "MAIN";
 
 
+void broker_task(void *arg)
+{
+    mqtt_broker_start();
+    vTaskDelete(NULL);
+}
 
 void app_main(void)
 {
@@ -70,7 +76,14 @@ void app_main(void)
 
     lcd_print("Wifi Connected");
     ESP_LOGI(TAG, "WiFi connected & got IP! Starting services...");
-
+    xTaskCreate(
+        broker_task,
+        "mqtt_broker",
+        8192,
+        NULL,
+        5,
+        NULL
+    );
     ntp_service_init();
 
     int ntp_retry = 0;
