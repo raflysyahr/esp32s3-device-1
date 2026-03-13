@@ -784,6 +784,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/workspaces/esp32s3-device-1/build/esp-idf/lcd_manager_service/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/workspaces/esp32s3-device-1/build/esp-idf/mqtt_service/cmake_install.cmake")
 endif()
 

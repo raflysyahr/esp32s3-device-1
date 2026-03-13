@@ -230,9 +230,11 @@ $<TARGET_FILE:idf::espressif__led_strip>
 $<TARGET_FILE:__idf_esp_driver_rmt>
 $<TARGET_FILE:idf::led_service>
 $<TARGET_FILE:__idf_espressif__led_strip>
+$<TARGET_FILE:idf::lcd_manager_service>
 $<TARGET_FILE:idf::mqtt_service>
 $<TARGET_FILE:__idf_espressif__mqtt>
 $<TARGET_FILE:__idf_led_service>
+$<TARGET_FILE:__idf_lcd_manager_service>
 $<TARGET_FILE:idf::ota_partition_service>
 $<TARGET_FILE:idf::bluetooth_service>
 $<TARGET_FILE:idf::espressif__sock_utils>

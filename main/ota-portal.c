@@ -14,6 +14,7 @@
 #include "bluetooth_service.h"
 #include "esp_app_desc.h"
 #include "mqtt_broker_service.h"
+#include "lcd_manager_service.h"
 
 static const char *TAG = "MAIN";
 
@@ -40,18 +41,18 @@ void app_main(void)
 
 
 
-    ESP_ERROR_CHECK(i2c_master_init());
-    lcd_init();
+    lcd_manager_init();//i2c_master_init());
+    //lcd_init();
 
 
     
-    lcd_print("SYSTEM READY");
+    lcd_log("SYSTEM READY");
 
     vTaskDelay(pdMS_TO_TICKS(2000));
 
-    lcd_print("ESP32-S3");
+    lcd_log("ESP32-S3");
     vTaskDelay(pdMS_TO_TICKS(2000));
-    lcd_print("BOOT OK");
+    lcd_log("BOOT OK");
 
 
 
@@ -69,12 +70,12 @@ void app_main(void)
 
     // Tunggu koneksi WiFi + IP
     while (!wifi_service_is_connected_and_got_ip()) {
-        lcd_print("Wifi connect...");
+        lcd_log("Wifi connect...");
         ESP_LOGI(TAG, "Waiting for WiFi connection and IP...");
         vTaskDelay(pdMS_TO_TICKS(2000));
     }
 
-    lcd_print("Wifi Connected");
+    lcd_log("Wifi Connected");
     ESP_LOGI(TAG, "WiFi connected & got IP! Starting services...");
     xTaskCreate(
         broker_task,
@@ -91,7 +92,7 @@ void app_main(void)
 
     while (!ntp_service_is_synced() && ntp_retry < ntp_max_retry) {
         ESP_LOGI(TAG, "Waiting for NTP time synchronization... (%d/%d)", ntp_retry + 1, ntp_max_retry);
-        lcd_print("Ntp SYNC....");
+        lcd_log("Ntp SYNC....");
         vTaskDelay(pdMS_TO_TICKS(1000));
         ntp_retry++;
     }
@@ -102,7 +103,7 @@ void app_main(void)
 
 
 	ESP_LOGI(TAG, "NTP synchronized successfully! Starting MQTT...");
-    lcd_print("Ntp Synchronized");
+    lcd_log("Ntp Synchronized");
 
         // Set timezone kalau perlu (contoh: WIB)
         setenv("TZ", "WIB-7", 1);
@@ -111,12 +112,12 @@ void app_main(void)
         mqtt_service_start();
         
         ESP_LOGI(TAG, "Time synchronized, MQTT and logging started");
-        lcd_print("Time synchronized");
+        lcd_log("Time synchronized");
 	led_set_green();
     }else{
 
 	    ESP_LOGE(TAG, "NTP synchronization FAILED or TIMEOUT! MQTT not started.");
-        lcd_print("Ntp Failed Sync");
+        lcd_log("Ntp Failed Sync");
         led_set_red();
     }
 

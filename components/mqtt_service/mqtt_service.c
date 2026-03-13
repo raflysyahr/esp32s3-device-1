@@ -16,7 +16,7 @@
 #include "freertos/timers.h"
 #include "esp_http_client.h"
 #include "led_service.h"
-
+#include "lcd_manager_service.h"
 
 
 
@@ -25,6 +25,8 @@
 #define TOPIC_REBOOT "esp32s3/reboot"
 #define TOPIC_BLINKING "esp32s3/blink"
 #define TOPIC_OTA_UPDATE "ota/update"
+#define TOPIC_LCD_CONTROLLER "lcd/controller"
+
 // Konfigurasi
 #define LOG_FILE_PATH       "/www/log.txt"     // Ganti jadi "/littlefs/log.txt" jika pakai LittleFS
 #define MAX_LOG_LINE        512
@@ -52,6 +54,50 @@ static void reboot_timer_callback(TimerHandle_t xTimer) {
     esp_restart();
 }
 
+
+static void handle_lcd_controller(const char *data,size_t data_len)
+{
+
+
+
+    char cmd[32];
+
+    if (data_len >= sizeof(cmd))
+        data_len = sizeof(cmd) - 1;
+
+    memcpy(cmd, data, data_len);
+    cmd[data_len] = '\0';   // ✔ benar
+
+    printf("CMD: %s\n", cmd);
+
+    if (strcmp(cmd, "UP") == 0)
+        lcd_scroll_up();
+
+    else if (strcmp(cmd, "DOWN") == 0)
+        lcd_scroll_down();
+
+    else if (strcmp(cmd, "LATEST") == 0)
+        lcd_scroll_latest();
+
+
+   
+   
+   
+
+   
+   
+
+   
+
+   
+   
+
+   
+   
+
+   
+   
+}
 
 
 
@@ -294,6 +340,8 @@ static void handle_mqtt_message(const char* topic, size_t topic_len, const char*
 
         perform_ota(url);
 
+    }else if(strcmp(topic_str, TOPIC_LCD_CONTROLLER) == 0){
+	handle_lcd_controller(data,data_len);
     }
     else {
         ESP_LOGW(TAG, "Topic tidak dikenal: %s", topic_str);

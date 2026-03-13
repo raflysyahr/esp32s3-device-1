@@ -3,6 +3,7 @@
 #include "mosq_broker.h"
 #include "esp_log.h"
 
+
 static const char *TAG = "mqtt_broker";
 
 void mqtt_broker_start(void)
@@ -17,6 +18,16 @@ void mqtt_broker_start(void)
 
     mosq_broker_run(&config);
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

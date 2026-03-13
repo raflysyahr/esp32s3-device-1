@@ -230,9 +230,11 @@
 /workspaces/esp32s3-device-1/build/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
 /workspaces/esp32s3-device-1/build/esp-idf/led_service/libled_service.a
 /workspaces/esp32s3-device-1/build/esp-idf/espressif__led_strip/libespressif__led_strip.a
+/workspaces/esp32s3-device-1/build/esp-idf/lcd_manager_service/liblcd_manager_service.a
 /workspaces/esp32s3-device-1/build/esp-idf/mqtt_service/libmqtt_service.a
 /workspaces/esp32s3-device-1/build/esp-idf/espressif__mqtt/libespressif__mqtt.a
 /workspaces/esp32s3-device-1/build/esp-idf/led_service/libled_service.a
+/workspaces/esp32s3-device-1/build/esp-idf/lcd_manager_service/liblcd_manager_service.a
 /workspaces/esp32s3-device-1/build/esp-idf/ota_partition_service/libota_partition_service.a
 /workspaces/esp32s3-device-1/build/esp-idf/bluetooth_service/libbluetooth_service.a
 /workspaces/esp32s3-device-1/build/esp-idf/espressif__sock_utils/libespressif__sock_utils.a
